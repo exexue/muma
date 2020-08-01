@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.options import Options
 import re
 import os
 import time
+import random
 
 mobile_emulation ={ 
             
@@ -45,7 +46,7 @@ def find_url(url):
 		flv = re.findall(res,x)
 		flv = "/data/Downloads/" + flv[0] + ".mp4"
 		#print("Downloads....  " + x)
-		mp4 = 'nohup ffmpeg -i "' + x + '" -c copy ' +  flv + "  >/dev/null 2>&1 &"
+		mp4 = 'nohup ffmpeg -i "' + x + '" -pix_fmt yuv420p -c copy ' +  flv + "  >/dev/null 2>&1 &"
 
 		print(mp4)
 		if os.path.exists(flv):
@@ -53,12 +54,13 @@ def find_url(url):
                     fsize = os.path.getsize(flv)
                     time.sleep(5)
                     ysize = os.path.getsize(flv)
-                    mp41 = 'nohup ffmpeg -i "' + x + '" -c copy ' + str(ysize) + flv + "  >/dev/null 2>&1 &"
+                    #mp41 = 'nohup ffmpeg -i "' + x + '" -c copy ' + str(ysize) + flv + "  >/dev/null 2>&1 &"
                     if fsize == ysize:
                         print("下载卡死，重新下载。")
                         #os.system("killall ffmpeg")
                         #os.system("mv " + flv + " " + str(ysize) + flv)
-                        os.system(mp41)
+                        os.system("mv " + flv + " " + str(random.randint(100,1000)) + name +".mp4")
+                        os.system(mp4)
                     else:
                         print("已有下载")
 		else:
@@ -92,7 +94,4 @@ print("地址2:" + html2)
 
 
 print("地址3:" + html3)
-
-
-
 
