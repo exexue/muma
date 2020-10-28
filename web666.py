@@ -72,11 +72,11 @@ def find_url(url):
 		return "erro"
 
 
-url2 = "https://v.kuaishou.com/7iKSOM"
-url1 = 'https://klsbeijing.m.chenzhongtech.com/fw/live/3xs5wu37h6utihq?fid=123102539&cc=share_copylink&groupName=E_5_190101223657061_G_1&appType=21&docId=5&shareId=117396493622&shareToken=X7ntzmoEc5Kn_9jFTKtwTW4o1US&userId=764420205&shareType=5&et=1_a/2000018879321925090_f81sl&timestamp=1579878315581'
-#url2 = 'http://m.gifshow.com/fw/live/3xqjysrhmr48uam?fid=123102539&cc=share_copylink&groupName=E_5_190101223657061_G_1&appType=21&docId=5&shareId=49191403452&shareToken=X6tcxb1gxBDA_3ZT812x5AoG1CR&userId=386882764&shareType=5&et=1_a/1641038029457219589_f81&timestamp=1565015929731'
-url3 = 'https://v.kuaishou.com/8ATp8Z'
-#url3 = 'https://v.kuaishou.com/fw/live/dcx-888888?fid=123102539&cc=share_copylink&appType=21&docId=5&shareId=140007880001&shareToken=X-4TSH58Yi2y1_fvsRqWNMJb1NE&userId=776325709&shareType=5&et=1_a/2000032618337729345_f108&timestamp=1584268882809'
+url2 = "https://v.kuaishou.com/7iKSO"
+url1 = 'https://klsbeijing.m.chenzhongtech.com/fw/live/3xs5wu3'
+#url2 = 'http://m.gifshow.com/fw/live/3xqjysrhmr4'
+url3 = 'https://v.kuaishou.com/8AT'
+#url3 = 'https://v.kuaishou.com/fw/live/dcx-888'
 html1 = find_url(url1)
 html2 = find_url(url2)
 html3 = find_url(url3)
