@@ -32,21 +32,24 @@ def find_url(url):
 		time.sleep(3)
 		html = driver.find_element_by_tag_name('html').get_attribute('innerHTML')
 		#print(html)
+		res = r'(http.{20,100}?m3u8.*?)"'
+
+
 
 		#html= driver.page_source
 
-		res = r'application/x-mpegURL" src="(.*?)" alt='
-
+		#res = r'application/x-mpegURL" src="(.*?)" alt='
 		url = re.findall (res,html)
 		x = url[0].replace('&amp;','&')
+		print(url)
 		x = x.replace('https','http')
-		os.system("echo '" + x + "' >>/data/Downloads/dizhi.txt")
+		os.system("echo '" + x + "' >>/data/dizhi.txt")
 
-		res = r'show\/(.*?).m3u8'
+		res = r'(.{5,10}?).m3u8'
 		flv = re.findall(res,x)
-		flv = "/data/Downloads/" + flv[0] + ".mp4"
+		flv = "/data/zhibo/" + flv[0] + ".mp4";
 		#print("Downloads....  " + x)
-		mp4 = 'nohup ffmpeg -i "' + x + '" -pix_fmt yuv420p -c copy ' +  flv + "  >/dev/null 2>&1 &"
+		mp4 = "nohup ffmpeg -i '" + x + "' -vcodec h264  -c copy " +  flv + " && rclone copy " + flv + " gdrive2:share/share/  && rm -rf " + flv + "  >/dev/null 2>&1 &"
 
 		print(mp4)
 		if os.path.exists(flv):
@@ -64,19 +67,22 @@ def find_url(url):
                     else:
                         print("已有下载")
 		else:
-			os.system(mp4)
-			print("执行下载成功...")
-		
+			if "vod" in x:
+				print("地址是回放精彩片段，不执行下载！")
+			else:
+				os.system(mp4)
+				print("执行下载成功...")
 		return x
 	except:
-		return "erro"
+		return "获取地址失败！"
 
-
-url2 = "https://v.kuaishou.com/7iKSO"
-url1 = 'https://klsbeijing.m.chenzhongtech.com/fw/live/3xs5wu3'
-#url2 = 'http://m.gifshow.com/fw/live/3xqjysrhmr4'
-url3 = 'https://v.kuaishou.com/8AT'
-#url3 = 'https://v.kuaishou.com/fw/live/dcx-888'
+#url2 ="https://v.kuaishou.com/521oj5"
+url2 = "https://v.kuaishou.com/9lcVPk"
+url1 = "https://v.kuaishou.com/7iKSOM"
+#url2 = 'https://klsbeijing.m.chenzhongtech.com/fw/live/3xs5wu37h6utihq?fid=123102539&cc=share_copylink&groupName=E_5_190101223657061_G_1&appType=21&docId=5&shareId=117396493622&shareToken=X7ntzmoEc5Kn_9jFTKtwTW4o1US&userId=764420205&shareType=5&et=1_a/2000018879321925090_f81sl&timestamp=1579878315581'
+#url2 = 'http://m.gifshow.com/fw/live/3xqjysrhmr48uam?fid=123102539&cc=share_copylink&groupName=E_5_190101223657061_G_1&appType=21&docId=5&shareId=49191403452&shareToken=X6tcxb1gxBDA_3ZT812x5AoG1CR&userId=386882764&shareType=5&et=1_a/1641038029457219589_f81&timestamp=1565015929731'
+url3 = 'https://v.kuaishou.com/8ATp8Z'
+#url3 = 'https://v.kuaishou.com/fw/live/dcx-888888?fid=123102539&cc=share_copylink&appType=21&docId=5&shareId=140007880001&shareToken=X-4TSH58Yi2y1_fvsRqWNMJb1NE&userId=776325709&shareType=5&et=1_a/2000032618337729345_f108&timestamp=1584268882809'
 html1 = find_url(url1)
 html2 = find_url(url2)
 html3 = find_url(url3)
@@ -94,4 +100,7 @@ print("地址2:" + html2)
 
 
 print("地址3:" + html3)
+
+
+
 
