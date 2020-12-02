@@ -4,7 +4,7 @@ from telegram.ext import Updater, CommandHandler
 from telegram.ext.dispatcher import run_async
 from telegram.ext import MessageHandler, Filters
  
-TOKEN = '1454306275:AAHbxYSgcGBoIY3t5k0BYTuyOQEU5YYn1Wo'
+TOKEN = '1454306275:AAHbxYSgcGBoIY3t5k0BYTuyOQEU5YYn1W'
  
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
