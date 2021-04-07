@@ -22,7 +22,7 @@ import backtrader as bt
 import akshare as ak
 #%matplotlib auto
 # import telegram
-# TOKEN = '1454306275:AAHbxYSgcGBoIY3t5k0BYTuyOQEU5YYn1Wo'
+# TOKEN = '1454306275:AAHbxYSgcGBoIY3t5k0BY'
 # bot = telegram.Bot(TOKEN)
 
 def get_data(code,time):
@@ -134,7 +134,7 @@ class TestStrategy(bt.Strategy):
                         
                         if dt_str == now_str:
                             print("当前时间发出做多信号,正在推送TG...")
-                            #bot.send_message(chat_id='727256696', text="品种:%s ,价格:%.2f ,发出做多信号！" % (d._name,d.close[0]) )
+                            #bot.send_message(chat_id='727256', text="品种:%s ,价格:%.2f ,发出做多信号！" % (d._name,d.close[0]) )
                         
 
                 if self.inds[d]['sma50'][0]  < self.inds[d]['sma100'][0] and d.close[0] < self.inds[d]['Low50'][0]:
@@ -147,7 +147,7 @@ class TestStrategy(bt.Strategy):
                     self.log('做空品种:' + d._name + ',做空价格： %.2f' % d.close[0])
                     if dt_str == now_str:
                         print("当前时间发出做空信号,正在推送TG...")
-                        #bot.send_message(chat_id='727256696', text="品种:%s ,价格:%.2f ,发出做空信号！" % (d._name,d.close[0]) )
+                        #bot.send_message(chat_id='727256', text="品种:%s ,价格:%.2f ,发出做空信号！" % (d._name,d.close[0]) )
                         
 
             else :
@@ -157,7 +157,7 @@ class TestStrategy(bt.Strategy):
                         self.log('平多品种:' + d._name + ',平多价格： %.2f' % d.close[0])
                         if dt_str == now_str:
                             print("当前时间发出平多信号,正在推送TG...")
-                            #bot.send_message(chat_id='727256696', text="品种:%s ,价格:%.2f ,发出平多信号！" % (d._name,d.close[0]))
+                            #bot.send_message(chat_id='7272566', text="品种:%s ,价格:%.2f ,发出平多信号！" % (d._name,d.close[0]))
                         
                 
                 if self.getposition(d).size < 0 and d.close[0] > self.inds[d]['Low50'][0] + 3*self.inds[d]['atr100'][0]:
@@ -166,7 +166,7 @@ class TestStrategy(bt.Strategy):
                         self.log('平空品种:' + d._name + ',平空价格： %.2f' % d.close[0])
                         if dt_str == now_str:
                             print("当前时间发出平空信号,正在推送TG...")
-                            #bot.send_message(chat_id='727256696', text="品种:%s ,价格:%.2f ,发出平空信号！" % (d._name,d.close[0]))
+                            #bot.send_message(chat_id='727256', text="品种:%s ,价格:%.2f ,发出平空信号！" % (d._name,d.close[0]))
 
     def stop(self):
         self.log('结束')
