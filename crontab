@@ -1,0 +1,64 @@
+# Edit this file to introduce tasks to be run by cron.
+# 
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+# 
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').
+# 
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+# 
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+# 
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+# 
+# For more information see the manual pages of crontab(5) and cron(8)
+# 
+# m h  dom mon dow   command
+
+
+
+
+
+0  9   * * * /root/.aria2/track.sh
+#*/11 * * * * python3 /data/Downloads/zb.py
+
+#0 */6 * * *  python3 /data/cookie.py
+#*/10 * * * * python3 /data/kuaishou.py
+
+#29 * * * * DISPLAY=:2 python3 /root/autoks.py
+
+#*/15 * * * * python3 /data/Download_url.py
+
+#*/15 * * * * python3 /data/web666.py
+#*/15 * * * * python3 /data/bak.py
+#*/27 * * * * killall chrome
+
+
+#* * * * * python3 /root/mao.py
+#* * * * * sleep 30; python3 /root/mao.py
+#* * * * * sleep 40; python3 /root/mao.py
+
+# backtrack
+#15 * * * * python3 /code/50ATR2021.py
+
+*/15 * * * * DISPLAY=:2 python3 /root/opentrade.py  #每26分钟判断交易软件运行
+56 * * * * python3 /code/Download_data_60m.py     #每小时56分更新60m行情数据
+
+58 * * * * DISPLAY=:2 python3 /root/auto666.py    #如果又交易信号就执行买入
+
+0  7 * * * python3 /code/Download_data_1d.py
+
+0  8  * * * python3 /code/50ATR_60m_atr0.01.py
+
+0  16  * * * python3 /code/50ATR_60m_atr0.005.py
+
+5  15  * * * python3 /code/50ATR2018.py
+
+10 15 * * * ptrgon2 /code/50ATR2021.py
