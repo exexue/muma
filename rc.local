@@ -1,0 +1,33 @@
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+#ip -6 addr add 2a02:e00:ffec:6e4::1/48 dev ens3
+#ip -6 route add default via 2a02:e00:ffec::1 dev ens3
+#/usr/bin/v2ray/v2ray -config /etc/v2ray/config.json.caddy
+#filebrowser -a 0.0.0.0 -p 8080 -r /data/Downloads/
+#/usr/bin/caddy -conf /etc/caddy/caddy.conf
+
+aria2c -D
+
+
+/usr/bin/v2ray -config /etc/v2ray/config.json.443 &
+#v2ray -config /etc/v2ray/config.json.kcp &
+#/usr/bin/v2ray -config /etc/v2ray/config.json.443 &
+
+python3 /root/liu.py &
+
+
+/usr/bin/filebrowser -a 0.0.0.0 -r /data/Downloads &
+
+exit 0
+
