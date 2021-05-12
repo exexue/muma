@@ -22,7 +22,7 @@ bot = telegram.Bot(TOKEN)
 import autotrade
 
 from jqdatasdk import *
-auth('15383484835','830335253') 
+auth('********','*******') 
 count=get_query_count()
 print(count)
 
