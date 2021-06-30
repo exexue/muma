@@ -33,7 +33,7 @@ def ver_code():      #验证码识别获取
         print(y)
         return y
     except:
-        return 1
+        return '1'
     
 def _size(code,size):
     code_size = {'AL8888':5,'JD8888':10,'BU8888':10,'UR8888':10,'C8888':10,'M8888':10,'RM8888':10,'TA8888':5,
