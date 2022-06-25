@@ -1,4 +1,6 @@
 # encoding:utf-8
+#匹配网址rtmp://pull.wzxpxb.cn/live/s1934094462_03cc280bf1?wsSecret=2a2b1bbf27778aebfcd8c912c5a8762b&wsTime=1656164948&sign=HwjazFdf4GBdwmaVzsDUfKCxllcR-x0CUTJqdrogAl6ouLooEKGbQWLRGHHlw5w1gFuF-Y60jRVr9Z9Hq1CJ9ZBF1l9NRuJ85Ll3Y_53ufkI8Pa-9bQoqh6V57E6nb_nJVVW9P13BBa7aQ9BW1PFP28tvZ6pHVxqymyYBR4L-I4
+#匹配网址rtmp://6s2z27kp8g3f8sofztf2.zgxhzm.com/live/80941336_f3a144c2b38b999b0f33d0efd1770cf2?token=c47c5fcd19d401c7d77da2ba553dc88e&t=1656164001
 import re,os
 while True:
     os.system('tcpdump -n -s 0 -X -l -c 15000 -w x.cap')
